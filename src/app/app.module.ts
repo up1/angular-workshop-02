@@ -10,12 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { ProductPipe } from './product.pipe';
 
 import { HttpClientModule } from '@angular/common/http';
+import { RatingComponent } from './rating/rating.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProductListComponent,
     ProductPipe,
+    RatingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
