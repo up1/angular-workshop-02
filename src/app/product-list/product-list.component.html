@@ -38,10 +38,10 @@
           <tr *ngFor="let product of products">
             <th>{{ product.imageUrl }}</th>
             <th>{{ product.code }}</th>
-            <th>{{ product.name }}</th>
-            <th>{{ product.price | number:'0.2-5' }}</th>
+            <th>{{ product.name | uppercase | productName:" "}}</th>
+            <th>{{ product.price | number:'1.2' }}</th>
             <th>{{ product.available }}</th>
-            <th>{{ product.rating | number:'0.2-5' }}</th>
+            <th>{{ product.rating }}</th>
           </tr>
         </tbody>
         <tbody *ngIf="products.length == 0">
