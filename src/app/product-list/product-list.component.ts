@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
+import DefaultProducts from '../initData';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -12,11 +13,11 @@ export class ProductListComponent implements OnInit {
   productFilterData: Product[] = [];
 
   constructor() {
-    this.products = [
-      new Product('4342', 'Macbook Pro', 34003.32, true, 2.1),
-      new Product('4342', 'iPhone 43', 234234.342, true, 24),
-      new Product('4342', 'Airplane', 3432.333, false, 0.5),
-    ];
+    DefaultProducts.forEach((prod) => {
+      this.products.push(
+        new Product(prod.id, prod.name, prod.price, prod.available, prod.rating)
+      );
+    });
   }
 
   ngOnInit(): void {}
