@@ -9,39 +9,43 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ProductService {
+  dummy: Product[] = [
+    {
+      code: 'AA 0001',
+      name: 'Product name 1',
+      price: 100,
+      rating: 5,
+      available: false,
+      imageUrl:
+        'https://th-live-01.slatic.net/original/795870113fb003d6e781310596480060.jpg',
+    },
+    {
+      code: 'BB 0002',
+      name: 'Product name 2',
+      price: 2000,
+      rating: 2,
+      available: true,
+      imageUrl:
+        'https://th-live-01.slatic.net/original/795870113fb003d6e781310596480060.jpg',
+    },
+    {
+      code: 'BB 0003',
+      name: 'Product name 3',
+      price: 2000,
+      rating: 3.5,
+      available: true,
+      imageUrl:
+        'https://th-live-01.slatic.net/original/795870113fb003d6e781310596480060.jpg',
+    },
+  ];
+
   constructor(private http: HttpClient) {}
 
-  getAllProducts(): Observable<Product[]> {
-    const dummy: Product[] = [
-      {
-        code: 'AA 0001',
-        name: 'Product name 1',
-        price: 100,
-        rating: 5,
-        available: false,
-        imageUrl:
-          'https://th-live-01.slatic.net/original/795870113fb003d6e781310596480060.jpg',
-      },
-      {
-        code: 'BB 0002',
-        name: 'Product name 2',
-        price: 2000,
-        rating: 2,
-        available: true,
-        imageUrl:
-          'https://th-live-01.slatic.net/original/795870113fb003d6e781310596480060.jpg',
-      },
-      {
-        code: 'BB 0003',
-        name: 'Product name 3',
-        price: 2000,
-        rating: 3.5,
-        available: true,
-        imageUrl:
-          'https://th-live-01.slatic.net/original/795870113fb003d6e781310596480060.jpg',
-      },
-    ];
+  getProduct(code: string): Observable<Product> {
+    return of(this.dummy.find((e) => e.code === code));
+  }
 
-    return of(dummy);
+  getAllProducts(): Observable<Product[]> {
+    return of(this.dummy);
   }
 }

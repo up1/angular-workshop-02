@@ -1,0 +1,43 @@
+<div *ngIf="!productView">
+  Not found
+</div>
+<div *ngIf="productView">
+  <div class="card-header">{{ productView.name }}'s Detail</div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <button class="btn btn-primary">
+                Product Image
+              </button>
+            </th>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Available</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <img [src]="productView.imageUrl" style="max-width: 20%;" />
+            </th>
+            <th>{{ productView.code }}</th>
+            <th>{{ productView.name | uppercase | spaceTarget }}</th>
+            <th>{{ productView.price | currency: "THB ":"symbol":"1.2" }}</th>
+            <th>{{ productView.available }}</th>
+            <th>
+              <app-rating
+                (onRatingEmitter)="onRatingClicked($event)"
+                [rating]="productView.rating"
+              ></app-rating>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

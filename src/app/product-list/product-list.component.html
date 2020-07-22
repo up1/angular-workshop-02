@@ -38,7 +38,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products | product: filterKeyWord">
+          <tr
+            [routerLink]="['/product/', product.code]"
+            *ngFor="let product of products | product: filterKeyWord"
+          >
             <th><img [src]="product.imageUrl" style="max-width: 20%;" /></th>
             <th>{{ product.code }}</th>
             <th>{{ product.name | uppercase | spaceTarget }}</th>

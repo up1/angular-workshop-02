@@ -10,6 +10,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { SpaceTargetPipe } from './pipes/space-target.pipe';
 import { ProductPipe } from './pipes/product.pipe';
 import { RatingComponent } from './rating/rating.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RatingComponent } from './rating/rating.component';
     SpaceTargetPipe,
     ProductPipe,
     RatingComponent,
+    ProductDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
