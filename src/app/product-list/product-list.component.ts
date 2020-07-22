@@ -12,13 +12,13 @@ export class ProductListComponent implements OnInit {
 
   productFilterData: Product[] = [];
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit(): void {
     DefaultProducts.forEach((prod) => {
       this.products.push(
         new Product(prod.id, prod.name, prod.price, prod.available, prod.rating)
       );
     });
   }
-
-  ngOnInit(): void {}
 }
