@@ -1,0 +1,7 @@
+version: "3"
+services:
+  web:
+    image: natthawitjan/product-app:0.0.1
+    container_name: product-app-natthawitjan
+    ports:
+      - "9999:80"
