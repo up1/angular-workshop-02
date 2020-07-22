@@ -44,7 +44,12 @@
             <th>{{ product.name | uppercase | spaceTarget }}</th>
             <th>{{ product.price | currency: "THB ":"symbol":"1.2" }}</th>
             <th>{{ product.available }}</th>
-            <th>{{ product.rating }}</th>
+            <th>
+              <app-rating
+                (onRatingEmitter)="onRatingClicked($event)"
+                [rating]="product.rating"
+              ></app-rating>
+            </th>
           </tr>
         </tbody>
       </table>

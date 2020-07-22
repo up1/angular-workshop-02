@@ -12,9 +12,11 @@ export class ProductListComponent implements OnInit {
   numberOfProduct: number = 0;
   filterKeyWord: string = '';
 
-  productFilterData: Product[] = [];
-
   constructor(private service: ProductService) {}
+
+  onRatingClicked(rating: string) {
+    alert(`Rating is ${rating}`);
+  }
 
   ngOnInit(): void {
     this.service.getAllProducts().subscribe((data: Product[]) => {
