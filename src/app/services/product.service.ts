@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product';
+import { HttpClient } from '@angular/common/http';
 import DefaultProducts from '../initData';
+
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getAllProducts(): Product[] {
-    const products = [];
-    DefaultProducts.forEach((prod) => {
-      products.push(
-        new Product(prod.id, prod.name, prod.price, prod.available, prod.rating)
-      );
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>('http://165.22.255.58:3000/products', {
+      observe: 'body',
+      responseType: 'json',
     });
-    return products;
   }
 }

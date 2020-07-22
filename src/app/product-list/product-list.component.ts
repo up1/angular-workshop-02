@@ -9,6 +9,7 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
+  numberOfProduct: number = 0;
   filterKeyWord: string = '';
 
   productFilterData: Product[] = [];
@@ -16,6 +17,10 @@ export class ProductListComponent implements OnInit {
   constructor(private service: ProductService) {}
 
   ngOnInit(): void {
-    this.products = this.service.getAllProducts();
+    this.service.getAllProducts().subscribe((data: Product[]) => {
+      this.products = data;
+      this.numberOfProduct = data.length;
+      console.log(data);
+    });
   }
 }
