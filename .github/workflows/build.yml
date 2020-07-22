@@ -29,5 +29,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: natthawitjan/product-app
-        tag: ${{github.run_id}}
     
