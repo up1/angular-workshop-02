@@ -40,7 +40,7 @@
               XXX
             </th>
             <th>{{ product.code }}</th>
-            <th>{{ product.name }}</th>
+            <th>{{ product.name | uppercase | spaceTarget }}</th>
             <th>{{ product.price | currency: "THB ":"symbol":"1.2" }}</th>
             <th>{{ product.available }}</th>
             <th>{{ product.rating }}</th>
