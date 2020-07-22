@@ -39,9 +39,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let product of products | product: filterKeyWord">
-            <th>
-              XXX
-            </th>
+            <th><img [src]="product.imageUrl" style="max-width: 20%;" /></th>
             <th>{{ product.code }}</th>
             <th>{{ product.name | uppercase | spaceTarget }}</th>
             <th>{{ product.price | currency: "THB ":"symbol":"1.2" }}</th>
